@@ -1,0 +1,6 @@
+//最大～767pxまでのモバイル向け　(768px～はPC向け)
+@mixin mq {
+  @media screen and (max-width: 767px) {
+      @content
+  }
+}

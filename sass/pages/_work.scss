@@ -1,0 +1,36 @@
+//他ファイルからの使用
+@use "../variables" as *;
+@use "../mixins" as *;
+
+
+.work-page {
+  #waveCanvas {
+    display: none;
+  }
+
+  main {
+    padding-top: 64px;
+  }
+  .works {
+    width: 70%;
+    // margin: 0 auto;
+    grid-template-columns: 1fr;
+    @include mq {
+      width: 100%;
+    }
+  }
+  .work-explanation {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+
+    &-area {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+}
+

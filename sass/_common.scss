@@ -1,0 +1,483 @@
+//他ファイルからの使用
+@use "./variables" as *;
+@use "./mixins" as *;
+
+//ローディング中
+//Loading背景
+#loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: var(--gray);
+  color: var(--base);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  //Loading画像中央
+  p {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  img {
+    width: 90%;
+    max-width: 470px;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// 基本設定
+html {
+  scroll-behavior: smooth;
+}
+
+.main-inner,
+.footer-inner {
+  margin: 0 80px;
+
+  @include mq {
+    margin: 0 24px;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-black);
+}
+
+//SP版のみ
+.sp-only {
+  display: none;
+
+  @include mq {
+    display: block;
+  }
+}
+
+//フォント 各見出し詳細
+body {
+  font-size: 16px;
+  font-family: var(--text-jp);
+  font-weight: normal;
+  color: var(--text-black);
+  background-color: var(--base);
+}
+
+.title-big-b,
+.title-mid-n,
+.cursive,
+.title-sm-b,h3,
+.title-big-n {
+  font-size: 32px;
+  font-weight: bold;
+  font-family: var(--text-en);
+  text-transform: uppercase;
+
+  span {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: var(--text-jp);
+  }
+}
+
+.cursive {
+  font-family: var(--text-enc);
+  text-transform: capitalize;
+}
+
+.title-big-n {
+  font-weight: normal;
+}
+
+.title-sm-b,h3 {
+  font-size: 20px;
+  font-family: var(--text-jp);
+  text-transform: capitalize;
+}
+
+.jp-mid {
+  font-size: 32px;
+}
+
+.jp-sm-b,
+dt {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+//見出し 余白
+.h2,
+.h2-sub,
+.under-space32 {
+  margin-bottom: 32px;
+}
+
+.m-b-0 {
+  margin-bottom: 0;
+}
+
+//SEND,MOREボタン
+button {
+  width: 64px;
+  height: 64px;
+  border: none;
+  border-radius: 50%;
+  margin: 32px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: button-color 4s ease-in 0s infinite normal none;
+
+  @keyframes button-color {
+    0% {
+      background: var(--pink);
+    }
+    50% {
+      background: var(--sun);
+    }
+    100% {
+      background: var(--pink);
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    background-color: var(--sun);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.5s ease;
+    pointer-events: none;
+  }
+
+  &:hover::after {
+    width: 130%;
+    height: 130%;
+    opacity: 1;
+  }
+
+  a {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+//赤丸
+.sun-sm::before {
+  content: "●";
+  display: inline-block;
+  color: var(--sun);
+  position: relative;
+  bottom: -1px;
+  padding-right: 8px;
+}
+
+//タイトル下線
+
+//headerナビゲーション
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  top: 0;
+
+  h1 {
+    position: relative;
+    z-index: 101;
+  }
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    margin-left: 24px;
+  }
+}
+
+//circle 太陽のナビゲーション
+.menu-circle {
+  width: 56px;
+  height: 56px;
+  background-color: var(--sun);
+  border-radius: 50%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  justify-content: center;
+  // align-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 101;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.7s, opacity 1s;
+    top: -125px;
+    right: -125px;
+    }
+
+  &:before {
+    background: lighten(#da969b, 25);
+    z-index: -20;
+  }
+
+  &:after {
+    background: lighten(#da969b, 20);
+    z-index: -30;
+  }
+
+  &.clicked:before {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+
+  &.clicked:after {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+//ハンバーガーと太陽の光
+.line-wrapper {
+  width: 24px;
+  height: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.line {
+  height: 2px;
+  width: 24px;
+  background: var(--text-brown);
+  display: block;
+  border-radius: 50px;
+  transition: all 0.5s;
+
+  &:nth-child(2) {
+    width: 20px;
+  }
+  &:nth-child(3) {
+    width: 16px;
+  }
+}
+
+.line-before-wrapper {
+  width: 84px;
+  height: 84px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  z-index: 90;
+  right: 0;
+  top: 0;
+}
+
+.line-before {
+  content: "";
+  display: block;
+  border-radius: 90%;
+  background-color: var(--sun);
+  height: 3.5px;
+  width: 21px;
+
+  &:nth-child(1) {
+    transform: translateY(-10px);
+  }
+  &:nth-child(2) {
+    transform: translateY(20px) translateX(10px) rotate(-45deg);
+  }
+  &:nth-child(3) {
+    transform: translateY(26px) translateX(50px) rotate(-90deg);
+  }
+}
+
+.line-wrapper.clicked .line:nth-child(1) {
+  transform: translateY(10px);
+}
+.line-wrapper.clicked .line:nth-child(3) {
+  transform: translateY(-10px);
+}
+
+//ナビゲーション項目
+.nav {
+  border-radius: 0 0 0 100%;
+  width: 100%;
+  height: 110vh;
+  background-color: var(--pink);
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  transform: translateX(100%) translateY(-100%);
+  transition: all 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    li {
+      margin: 16px;
+    }
+  }
+
+  //メニュー開いたとき
+  &.show {
+    border-radius: 0;
+    transform: scale(1) translateY(-56px);
+    opacity: 1;
+    transition: all 1s ease-in-out;
+  }
+}
+
+//CONTACT
+form {
+  width: 80%;
+  max-width: 832px;
+  margin: 0 auto 64px;
+
+  @include mq {
+    width: 100%;
+  }
+}
+
+dl {
+  margin: 0 auto;
+}
+
+.form-item {
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+dt,
+dd {
+  width: 100%;
+}
+dt {
+  margin-bottom: 16px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  border: 1px solid var(--text-brown);
+  background: var(--white);
+  padding: 8px;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+//フッター波曲線
+.footer-bottom {
+  width: 100%;
+  height: 8rem;
+  // position: absolute;
+  position: relative;
+
+  .wave {
+    background-color: transparent;
+    height: 128px;
+  }
+
+  .wave canvas {
+    height: 128px;
+    // position: absolute;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+//コピーライト
+.copy {
+  width: 100%;
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 16px;
+}
+
+//thankyou&上に戻る
+.go-up {
+  position: absolute;
+  right: 0;
+  margin-right: 80px;
+  bottom: 48px;
+
+  @include mq {
+    margin-right: 0;
+  }
+
+  .thankyou {
+    width: 122px;
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+
+.suzuran-sm {
+  position: absolute;
+  left: 0;
+  margin-left: 80px;
+  bottom: 48px;
+
+  @include mq {
+    margin-left: 0;
+  }
+}

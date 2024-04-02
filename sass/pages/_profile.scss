@@ -1,0 +1,152 @@
+//他ファイルからの使用
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.profile-page {
+  #waveCanvas {
+    display: none;
+  }
+
+  .main-inner {
+    padding: 84px 0 32px 0;
+  }
+}
+
+
+
+//Biography
+.biography {
+  &-cover {
+    margin-left: 112px;
+
+    @include mq {
+      margin-left: 0px;
+    }
+  }
+
+  &-content {
+    // width: 416px!important;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    // margin: 0 16px;
+    
+
+    .sun-sm {
+      position: relative;
+      &::before {
+        position: absolute;
+        transform: translate(-50%, 35%);
+      }
+    }
+
+    &-line {
+      width: 95%;
+      height: 1px;
+      background-color: var(--text-black);
+      position: relative;
+      left: 16px;
+    }
+
+    &-text {
+      width: 256px;
+    }
+  }
+}
+
+.swiper-pagination-bullets {
+  position: static;
+  margin-top: 16px;
+}
+
+.swiper-pagination {
+  span {
+    background-color: var(--sun);
+  }
+}
+
+
+//Strength
+.strength {
+  &-cover {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+
+    .circle {
+      display: flex;
+      justify-content: center;
+
+      &-content {
+        margin: 0 -8px;
+        flex-basis: 30%;
+        aspect-ratio: 1/1;
+        max-width: 257px;
+        max-height: 257px;
+        border: 1px solid var(--text-black);
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        span {
+          @include mq {
+            font-size: 12px;
+            font-weight: normal;
+          }
+        }
+      }
+    }
+  }
+
+  .circle-text {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+
+    &-area {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @include mq {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+//Skill
+.skill {
+  &-cover {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+
+    @include mq {
+      grid-template-columns: 1fr;
+    }
+
+    .skill-img {
+      margin: 0 auto;
+    }
+
+    .skill-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      &-icon {
+        display: flex;
+        gap: 16px;
+
+        img {
+          max-width: 48px;
+          max-height: 48px;
+        }
+      }
+    }
+  }
+}

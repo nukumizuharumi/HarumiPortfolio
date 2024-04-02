@@ -1,0 +1,39 @@
+//他ファイルからの使用
+@use "../variables" as *;
+@use "../mixins" as *;
+
+//WROKSのページナビ
+.works-page {
+  #waveCanvas {
+    display: none;
+  }
+
+  main {
+    margin-bottom: 64px;
+  }
+
+  .works-nav {
+    padding-top: 84px;
+    padding-bottom: 32px;
+    @include mq {
+      margin: 0 -24px;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+  }
+
+  li {
+    padding: 16px;
+    @include mq {
+      padding: 4px;
+    }
+    a {
+      text-transform: capitalize;
+      font-weight: bold;
+    }
+  }
+}

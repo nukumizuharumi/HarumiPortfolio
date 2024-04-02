@@ -1,0 +1,210 @@
+//他ファイルからの使用
+@use "../variables" as *;
+@use "../mixins" as *;
+
+//メインビジュアルのタイトル・フォント設定
+.main-visual-text {
+  &-title {
+    font-size: 64px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    @include mq {
+      font-size: 48px;
+    }
+  }
+
+  &-phrase {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 16px;
+
+    @include mq {
+      font-size: 16px;
+    }
+  }
+}
+
+//メインビジュアルの背景
+.top-page .main-top {
+  background: var(--sky);
+}
+
+.main-visual {
+  padding: 88px 0 32px 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  //メインビジュアル太陽
+  &-sun {
+    width: 240px;
+    height: 240px;
+    background-color: var(--sun);
+    border-radius: 50%;
+
+    animation: sunrise 3s linear 1.8s 1 normal both;
+
+    //sunrise
+    @keyframes sunrise {
+      0% {
+        opacity: 0;
+        transform: translate(-100%, 100%);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+  }
+
+  //メインビジュアル文字
+  &-text {
+    position: absolute;
+    bottom: 0;
+    margin: 0 80px;
+
+    @include mq {
+      margin: 0 24px;
+    }
+  }
+
+  &-bottom {
+    height: 320px;
+    width: 100%;
+
+    //メインビジュアル波
+    #waveCanvas {
+      width: 100%;
+      height: 70%;
+      background-color: transparent;
+      position: relative;
+      bottom: -30%;
+    }
+
+    img {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin-right: 24px;
+      max-height: 400px;
+
+      @include mq {
+        width: 20%;
+        margin-right: 24px;
+      }
+    }
+  }
+}
+
+//メインビジュアルタイトルのアニメーション
+.TextFlow-cover {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: flow 2s ease-out 4.8s 1 normal both;
+}
+.TextFlow {
+
+  @keyframes flow {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+}
+
+//タイミング風アニメーション
+.TextTyping {
+  // letter-spacing: .1rem;
+  span {
+    display: none; //jsで後からつける
+  }
+  &::after {
+    content: "|";
+    animation: typing 1s linear 6.5s infinite both;
+
+    @keyframes typing {
+      0% {
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+//各セクション共通設定
+.sect {
+  padding: 32px 0;
+}
+
+
+//WORKS部分
+.works{
+  display:grid;
+  gap: 32px;
+  grid-template-columns: repeat(2,1fr);
+
+  .work a {
+  display:grid;
+  gap: 8px;
+  grid-template-columns: 1fr;
+
+  img {
+    transform: scale(1);
+    transition: 0.5s ease-in-out;
+  }
+
+  &:hover img {
+    transform: scale(1.2);
+  }
+  }
+
+  .img-cover {
+    overflow: hidden;
+  }
+
+  @include mq {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+//ABOUT部分
+.about{
+  display:grid;
+  gap: 32px;
+  grid-template-columns: 1fr 2fr;
+
+  img {
+    margin: 0 auto;
+  }
+
+  &-text {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+
+    @include mq {
+      .title-big-n {
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  @include mq {
+    grid-template-columns: 1fr;
+  }
+}
