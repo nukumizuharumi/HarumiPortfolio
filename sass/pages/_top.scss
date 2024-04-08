@@ -106,7 +106,6 @@
   animation: flow 2s ease-out 4.8s 1 normal both;
 }
 .TextFlow {
-
   @keyframes flow {
     0% {
       width: 0%;
@@ -146,49 +145,46 @@
 
 //各セクション共通設定
 .sect {
-  padding: 32px 0;
+  padding: 64px 0;
 }
 
+//works-area部分
+.works-area {
+  display: grid;
+  gap: 64px;
+  grid-template-columns: repeat(2, 1fr);
 
-//WORKS部分
-.works{
-  display:grid;
-  gap: 32px;
-  grid-template-columns: repeat(2,1fr);
-
-  .work a {
-  display:grid;
+  @include mq {
+    grid-template-columns: 1fr;
+  }
+}
+.img-cover {
+  overflow: hidden;
+}
+.work,
+.work a {
+  display: grid;
   gap: 8px;
   grid-template-columns: 1fr;
 
   img {
     transform: scale(1);
     transition: 0.5s ease-in-out;
-  }
 
-  &:hover img {
-    transform: scale(1.2);
-  }
-  }
-
-  .img-cover {
-    overflow: hidden;
-  }
-
-  @include mq {
-    grid-template-columns: 1fr;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }
 
-
 //ABOUT部分
-.about{
-  display:grid;
+.about {
+  display: grid;
   gap: 32px;
   grid-template-columns: 1fr 2fr;
 
   img {
-    margin: 0 auto;
+    margin: auto auto;
   }
 
   &-text {

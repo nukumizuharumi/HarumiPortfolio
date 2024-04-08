@@ -45,6 +45,7 @@ html {
 .main-inner,
 .footer-inner {
   margin: 0 80px;
+  padding-top: 32px;
 
   @include mq {
     margin: 0 24px;
@@ -54,6 +55,7 @@ html {
 img {
   display: block;
   max-width: 100%;
+  object-fit: contain;
 }
 
 ul {
@@ -81,8 +83,9 @@ body {
   font-weight: normal;
   color: var(--text-black);
   background-color: var(--base);
+  line-height: 1.3;
 }
-
+.btn-text,
 .title-big-b,
 .title-mid-n,
 .cursive,
@@ -108,6 +111,7 @@ h3,
 
 .title-big-n {
   font-weight: normal;
+  font-size: 32px;
 }
 
 .title-sm-b,
@@ -115,6 +119,10 @@ h3 {
   font-size: 20px;
   font-family: var(--text-jp);
   text-transform: capitalize;
+}
+
+.btn-text {
+  font-size: 24px;
 }
 
 .jp-mid {
@@ -144,13 +152,17 @@ button {
   height: 64px;
   border: none;
   border-radius: 50%;
-  margin: 32px auto;
+  margin: 64px auto 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  animation: button-color 4s ease-in 0s infinite normal none;
+  background-color: var(--pink);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+
+  // animation: button-color 4s ease-in 0s infinite normal none;
 
   @keyframes button-color {
     0% {
@@ -197,8 +209,6 @@ button {
   bottom: -1px;
   padding-right: 8px;
 }
-
-//タイトル下線
 
 //headerナビゲーション
 header {

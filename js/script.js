@@ -187,16 +187,16 @@ init();
 //wave ↑参考コード
 
 
-// 横スクロールでBiography
-const swiper = new Swiper('.swiper', {
-  // direction: 'horizontal',
-  slidesPerView: 1,
-  loop: false,
-  mousewheel: true,
-  pagination: {
-    el: ".swiper-pagination"
-  }
-});
+// // 横スクロールでBiography
+// const swiper = new Swiper('.swiper', {
+//   // direction: 'horizontal',
+//   slidesPerView: 1,
+//   loop: false,
+//   mousewheel: true,
+//   pagination: {
+//     el: ".swiper-pagination"
+//   }
+// });
 
 
 //

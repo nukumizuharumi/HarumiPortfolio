@@ -2,7 +2,6 @@
 @use "../variables" as *;
 @use "../mixins" as *;
 
-
 .work-page {
   #waveCanvas {
     display: none;
@@ -11,7 +10,7 @@
   main {
     padding-top: 64px;
   }
-  .works {
+  .works-area {
     width: 70%;
     // margin: 0 auto;
     grid-template-columns: 1fr;
@@ -19,8 +18,21 @@
       width: 100%;
     }
   }
+
+  .work {
+    img {
+      width: 70%;
+      min-width: 272px;
+      margin: 0 auto;
+    }
+
+    img:hover {
+      transform: scale(1.05);
+    }
+  }
+
   .work-explanation {
-    margin-top: 32px;
+    padding-top: 64px;
     display: grid;
     grid-template-columns: 1fr;
     gap: 32px;
@@ -28,9 +40,38 @@
     &-area {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 8px;
+    }
+  }
+}
+
+.skip {
+  .category {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.category-item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.work-page {
+  button {
+    margin-bottom: 0;
+
+    a {
+      margin: 0 auto;
     }
   }
 
+  .prenext-title {
+    margin: 16px 0px 48px 0px;
+  }
 }
-

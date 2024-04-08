@@ -11,18 +11,19 @@
   main {
     margin-bottom: 64px;
   }
+  .sect {
+    padding-top: 0px;
+  }
 
-  .works-nav {
+  .main-inner {
     padding-top: 84px;
     padding-bottom: 32px;
-    @include mq {
-      margin: 0 -24px;
-    }
 
     ul {
+      // margin-top: 32px;
       display: flex;
       flex-direction: row;
-      justify-content: flex-end;
+      // justify-content: flex-end;
     }
   }
 

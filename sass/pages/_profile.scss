@@ -12,8 +12,6 @@
   }
 }
 
-
-
 //Biography
 .biography {
   &-cover {
@@ -24,54 +22,60 @@
     }
   }
 
+  .biography-wrapper {
+    display: grid;
+    gap: 60px;
+  }
+
   &-content {
-    // width: 416px!important;
+    // width: 416px !important;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 16px;
     // margin: 0 16px;
-    
+    position: relative;
+
+    &-line {
+      width: 1px; //95%
+      height: 95%;
+      background-color: var(--text-black);
+      position: absolute !important;
+      left: 16px;
+      top: 40px;
+    }
 
     .sun-sm {
-      position: relative;
       &::before {
         position: absolute;
-        transform: translate(-50%, 35%);
+        top: -8px;
+        left: -7px;
       }
     }
 
-    &-line {
-      width: 95%;
-      height: 1px;
-      background-color: var(--text-black);
-      position: relative;
-      left: 16px;
-    }
-
     &-text {
-      width: 256px;
+      width: 80%;
+      padding-left: 32px;
     }
   }
 }
 
-.swiper-pagination-bullets {
-  position: static;
-  margin-top: 16px;
-}
+// .swiper-pagination-bullets {
+//   position: static;
+//   margin-top: 16px;
+// }
 
-.swiper-pagination {
-  span {
-    background-color: var(--sun);
-  }
-}
-
+// .swiper-pagination {
+//   span {
+//     background-color: var(--sun);
+//   }
+// }
 
 //Strength
 .strength {
   &-cover {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 32px;
 
     .circle {
       display: flex;
