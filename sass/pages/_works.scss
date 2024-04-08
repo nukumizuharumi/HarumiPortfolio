@@ -11,6 +11,7 @@
   main {
     margin-bottom: 64px;
   }
+
   .sect {
     padding-top: 0px;
   }
@@ -18,20 +19,27 @@
   .main-inner {
     padding-top: 84px;
     padding-bottom: 32px;
+  }
+}
 
-    ul {
-      // margin-top: 32px;
-      display: flex;
-      flex-direction: row;
-      // justify-content: flex-end;
-    }
+.page-nav {
+  display: flex;
+  flex-direction: column;
+  margin: 32px 0px;
+  gap: 16px;
+
+  ul {
+    display: flex;
+    flex-direction: row;
   }
 
   li {
     padding: 16px;
+
     @include mq {
       padding: 4px;
     }
+
     a {
       text-transform: capitalize;
       font-weight: bold;
