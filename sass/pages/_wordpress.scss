@@ -22,5 +22,35 @@
 //     margin: 32px 24px;
 //   }
 // }
+button a {
+  input[type="submit"],
+  .wpcf7-form-control {
+    margin: 0 auto;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    background-color: inherit;
+    color: var(--text-black);
+  }
+}
 
+span.wpcf7-spinner {
+  display: none;
+}
 
+.check-page,
+.thanks-page {
+  padding: 100px 0px;
+
+  #waveCanvas {
+    display: none;
+  }
+}
+
+.check-page {
+  .h3 {
+    margin: 16px auto;
+    width: 80%;
+  }
+}

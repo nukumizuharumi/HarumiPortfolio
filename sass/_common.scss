@@ -149,7 +149,9 @@ dt {
 }
 
 //SEND,MOREボタン
-button {
+// input[type="submit"]
+button
+{
   width: 64px;
   height: 64px;
   border: none;
@@ -385,7 +387,18 @@ header {
 }
 
 //CONTACT
-form {
+// form {
+//   width: 80%;
+//   max-width: 832px;
+//   margin: 0 auto 64px;
+
+//   @include mq {
+//     width: 100%;
+//   }
+// }
+
+dl {
+  margin: 0 auto;
   width: 80%;
   max-width: 832px;
   margin: 0 auto 64px;
@@ -393,10 +406,6 @@ form {
   @include mq {
     width: 100%;
   }
-}
-
-dl {
-  margin: 0 auto;
 }
 
 .form-item {
